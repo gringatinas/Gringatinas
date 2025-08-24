@@ -39,6 +39,13 @@
       border: none;
       border-radius: 10px;
     }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
     a.button {
       display: inline-block;
       background: linear-gradient(45deg, #ff004c, #8a00ff);
@@ -48,8 +55,9 @@
       font-weight: bold;
       text-decoration: none;
       border-radius: 50px;
-      margin-top: 25px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 250px;
+      text-align: center;
     }
     a.button:hover {
       transform: scale(1.08);
@@ -66,18 +74,25 @@
 
   <header>
     <h1>🎀 Bem-vindo ao Clube VIP</h1>
-    <p>Converse comigo abaixo. Caso não carregue, use o botão:</p>
+    <p>Converse comigo abaixo ou escolha uma das opções:</p>
   </header>
 
   <div class="box">
     <!-- Embed do Typebot -->
-    <iframe src="https://typebot.co/brendatavares"></iframe>
+    <iframe src="https://typebot.co/brenda-tavares-0j07fjm"></iframe>
   </div>
 
-  <!-- Botão fallback para Telegram -->
-  <a href="https://t.me/nathaliamingotti_bot?start=utm_59511a3b-1a5f-4935-a9b9-1139b3e3285b" class="button" target="_blank">
-    CLIQUE AQUI 😈
-  </a>
+  <div class="buttons">
+    <!-- Botão para Grupo Grátis -->
+    <a href="https://pay.kirvano.com/6480fa62-c44c-492b-955c-805ad5f41f14" class="button" target="_blank">
+     TÉCNICAS SECRETAS DO ATOR P0RN0 🍆
+    </a>
+
+    <!-- Botão para Checkout Kirvano -->
+    <a href="https://t.me/nathaliamingotti_bot?start=utm_59511a3b-1a5f-4935-a9b9-1139b3e3285b" class="button" target="_blank" style="background:linear-gradient(45deg,#00c853,#00e676);">
+      🔥 ACESSO GRUPO GRÁTIS
+    </a>
+  </div>
 
   <footer>
     © 2025 Clube VIP – Conteúdo exclusivo 🔞
@@ -85,3 +100,4 @@
 
 </body>
 </html>
+
