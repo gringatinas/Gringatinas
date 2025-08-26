@@ -56,12 +56,12 @@
 <body>
   <main class="wrap">
     <!-- Substitua o href pelo seu link Beacons -->
-    <a class="btn" href="https://beacons.ai/SEU_USUARIO" target="_blank" rel="noopener">clique aqui</a>
+    <a class="btn" href="https://beacons.ai/brendatavaresx" target="_blank" rel="noopener">clique aqui</a>
   </main>
 
   <noscript>
     <div style="text-align:center; padding:16px;">
-      <p><a href="https://beacons.ai/SEU_USUARIO" target="_blank" rel="noopener">clique aqui</a></p>
+      <p><a href="https://beacons.ai/brendatavaresx" target="_blank" rel="noopener">clique aqui</a></p>
     </div>
   </noscript>
 </body>
