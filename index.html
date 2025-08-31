@@ -1,69 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gringatinas.store</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundinho Secreto da Brenda</title>
   <meta name="robots" content="noindex,nofollow" />
   <style>
-    :root {
-      --bg: #ffffff;      /* página branca */
-      --txt: #111111;     /* texto escuro */
-      --grad1: #ff004c;   /* botão destacado */
-      --grad2: #8a00ff;
+    body {
+      margin:0;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:#fff;
+      font-family: Arial, sans-serif;
     }
-    * { box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: var(--bg);
-      color: var(--txt);
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
+    h1 {
+      font-size: 28px;
+      margin-bottom: 40px;
+      color:#111;
+      text-align:center;
     }
-    .wrap {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
+    a.btn {
+      display:inline-block;
+      padding:18px 40px;
+      font-size:20px;
+      font-weight:bold;
+      background:#111;
+      color:#fff;
+      border-radius:10px;
+      text-decoration:none;
+      transition: background .2s ease, transform .1s ease;
     }
-    .btn {
-      display: inline-block;
-      padding: 18px 42px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(45deg, var(--grad1), var(--grad2));
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: .4px;
-      box-shadow: 0 10px 28px rgba(138,0,255,.24), 0 6px 12px rgba(255,0,76,.22);
-      transition: transform .15s ease, box-shadow .15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn:hover { transform: translateY(-1px) scale(1.02); }
-    .btn:active { transform: translateY(0); }
-    /* foco acessível */
-    .btn:focus-visible {
-      outline: 3px solid #8a00ff66;
-      outline-offset: 4px;
-    }
-    /* opção de centralizar ainda mais em telas muito altas */
-    @media (min-height: 900px) {
-      .wrap { padding-top: 10vh; }
-    }
+    a.btn:hover { background:#333; }
+    a.btn:active { transform:scale(.97); }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <!-- Substitua o href pelo seu link Beacons -->
-    <a class="btn" href="https://beacons.ai/brendatavaresx" target="_blank" rel="noopener">clique aqui</a>
-  </main>
-
-  <noscript>
-    <div style="text-align:center; padding:16px;">
-      <p><a href="https://beacons.ai/brendatavaresx" target="_blank" rel="noopener">clique aqui</a></p>
-    </div>
-  </noscript>
+  <h1>Mundinho Secreto da Brenda</h1>
+  <a class="btn" href="https://app.pushinpay.com.br/service/pay/9F4995E4-13A8-47DF-930C-593472EC8D56" target="_blank" rel="noopener">
+    CLIQUE AQUI
+  </a>
 </body>
 </html>
-
