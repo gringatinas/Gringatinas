@@ -43,10 +43,10 @@
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      background:#fff;
       font-family: Arial, sans-serif;
-      color:#111;
+      color:#fff;
       text-align:center;
+      background: linear-gradient(135deg, #000000, #2d003d);
     }
     h1 {
       font-size: 28px;
@@ -54,26 +54,18 @@
     }
     p {
       font-size: 16px;
-      color:#555;
+      color:#bbb;
+      margin-bottom: 30px;
     }
-  </style>
-
-  <!-- Redirecionamento em 3s -->
-  <script>
-    setTimeout(function(){
-      window.location.href = "https://t.me/brendatavarex_bot?utm_source=tiktok";
-    }, 3000);
-  </script>
-</head>
-<body>
-  <h1>Mundinho Secreto da Brenda</h1>
-  <p>Carregando seu acesso... ⏳</p>
-</body>
-</html>
-
-
-
-
-
-
-
+    .progress-container {
+      width: 80%;
+      max-width: 300px;
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      back
