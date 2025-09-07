@@ -68,4 +68,27 @@
     .progress-bar {
       width: 0%;
       height: 100%;
-      back
+      background: linear-gradient(90deg, #8e2de2, #4a00e0);
+      animation: load 3s linear forwards;
+    }
+    @keyframes load {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+  </style>
+
+  <!-- Redirecionamento em 3s -->
+  <script>
+    setTimeout(function(){
+      window.location.href = "https://t.me/brendatavarex_bot?utm_source=tiktok";
+    }, 3000);
+  </script>
+</head>
+<body>
+  <h1>Mundinho Secreto da Brenda</h1>
+  <p>Carregando seu acesso... ⏳</p>
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+</body>
+</html>
