@@ -6,27 +6,26 @@
   <title>Mundinho Secreto da Brenda</title>
 
   <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'COLOQUE_AQUI_SEU_PIXEL_FACEBOOK');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=COLOQUE_AQUI_SEU_PIXEL_FACEBOOK&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '652474300856231');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
   <!-- UTMify Pixel -->
   <script>
-    window.pixelId = "COLOQUE_AQUI_SEU_PIXEL_UTMIFY";
+    window.pixelId = "652474300856231";
     var a = document.createElement("script");
     a.setAttribute("async", "");
     a.setAttribute("defer", "");
@@ -37,37 +36,45 @@
 
   <style>
     :root {
-      --accent1: #ff0033;
-      --accent2: #cc0029;
+      --bg1: #0d0d0d;
+      --bg2: #1a001f;
+      --accent1: #8e2de2;
+      --accent2: #4a00e0;
+      --text-light: #f5f5f5;
     }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      color: #111;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text-light);
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
     .container {
-      max-width: 520px;
+      max-width: 640px;
       margin: 0 auto;
-      background: #fff;
+      background: rgba(255,255,255,0.05);
       padding: 30px 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
     }
     .logo img {
-      max-width: 140px;
+      max-width: 160px;
       margin-bottom: 20px;
+      filter: drop-shadow(0 0 8px rgba(142,45,226,0.8));
     }
     h1 {
-      font-size: 22px;
+      font-size: 26px;
       margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     p.desc {
-      color: #555;
+      color: #ccc;
       font-size: 15px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
     /* Prévia dos vídeos */
     .previews {
@@ -76,41 +83,50 @@
     .previews h2 {
       margin-bottom: 20px;
       font-size: 20px;
-      color: var(--accent1);
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
     }
     .videos video {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+    }
+    .videos video:hover {
+      transform: scale(1.03);
     }
     /* Botões de compra */
     .btn {
       display: block;
-      background: var(--accent1);
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
       color: #fff;
       text-decoration: none;
-      padding: 14px;
-      border-radius: 8px;
+      padding: 16px;
+      border-radius: 30px;
       font-weight: bold;
-      margin: 12px 0;
-      transition: background .2s;
+      margin: 14px 0;
+      box-shadow: 0 6px 20px rgba(142,45,226,0.5);
+      transition: transform .2s, box-shadow .2s;
     }
     .btn:hover {
-      background: var(--accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74,0,224,0.6);
     }
     /* Rodapé */
     .footer {
       margin-top: 25px;
       font-size: 12px;
-      color: #999;
+      color: #aaa;
     }
     .footer a {
-      color: #666;
+      color: #ccc;
       text-decoration: none;
       margin: 0 6px;
     }
@@ -125,7 +141,7 @@
     </div>
 
     <h1>Mundinho Secreto da Brenda</h1>
-    <p class="desc">Assista as prévias abaixo e escolha seu plano para liberar acesso completo 🔥</p>
+    <p class="desc">Oi amor, assiste as prévias abaixo... Se você gostar, clica pra comprar e ver os detalhes do pacotinho! 🔥</p>
 
     <!-- PRÉVIAS -->
     <div class="previews">
@@ -165,5 +181,3 @@
 
 </body>
 </html>
-
-
