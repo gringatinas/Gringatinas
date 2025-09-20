@@ -1,16 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Mundinho Secreto da Brenda</title>
-  <meta name="robots" content="noindex,nofollow" />
 
-  <!-- =========================
-       PIXELS / RASTREAMENTO
-       Substitua os IDs abaixo pelos seus
-       ========================= -->
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,289 +13,155 @@
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    /* COLOQUE_AQUI_SEU_PIXEL_FACEBOOK (NUMÉRICO) */
-    fbq('init', '723224903781669'); /* exemplo - substitua */
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'COLOQUE_AQUI_SEU_PIXEL_FACEBOOK');
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=723224903781669&ev=PageView&noscript=1" />
+      src="https://www.facebook.com/tr?id=COLOQUE_AQUI_SEU_PIXEL_FACEBOOK&ev=PageView&noscript=1"/>
   </noscript>
+  <!-- End Meta Pixel Code -->
 
   <!-- UTMify Pixel -->
   <script>
-    /* COLOQUE_AQUI_SEU_PIXEL_UTMIFY (hash) */
-    window.pixelId = "68a24e0d8dba05de90df4f4d"; /* exemplo - substitua */
-    var _u = document.createElement("script");
-    _u.async = true; _u.defer = true;
-    _u.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-    document.head.appendChild(_u);
+    window.pixelId = "COLOQUE_AQUI_SEU_PIXEL_UTMIFY";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
   </script>
+  <!-- End UTMify Pixel -->
 
-  <!-- =========================
-       STYLES (clean, responsivo)
-       ========================= -->
   <style>
-    :root{
-      --bg:#0b0b0b;
-      --card:#0f0f0f;
-      --accent1:#ff0033;
-      --accent2:#a14bff;
-      --muted:#cfc8c8;
-      --radius:12px;
-      --maxw:920px;
-      --txt:#ffffff;
-      --shadow: 0 12px 42px rgba(0,0,0,0.6);
-      --glass: rgba(255,255,255,0.03);
+    :root {
+      --accent1: #ff0033;
+      --accent2: #cc0029;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(135deg, #000000 0%, #220000 60%, #440000 100%);
-      color:var(--txt);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #111;
+      text-align: center;
+      padding: 40px 20px;
     }
-
-    .shell{
-      width:100%;
-      max-width:var(--maxw);
-      padding:28px;
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(255,255,255,0.03);
-      display:flex;
-      gap:28px;
-      align-items:flex-start;
+    .logo img {
+      max-width: 140px;
+      margin-bottom: 20px;
     }
-
-    /* left column - logo + copy */
-    .left{
-      width:360px;
-      min-width:260px;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-      align-items:center;
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
     }
-
-    .logo {
-      width:160px;
-      height:160px;
-      border-radius:14px;
-      background:var(--glass);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    p.desc {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
     }
-    .logo img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-    h1{
-      margin:0;
-      font-size:22px;
-      text-align:center;
-      line-height:1.05;
+    /* Prévia dos vídeos */
+    .previews {
+      margin-bottom: 30px;
     }
-    p.lead{
-      margin:0;
-      color:var(--muted);
-      text-align:center;
-      font-size:14px;
-      line-height:1.5;
+    .previews h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: var(--accent1);
     }
-
-    /* right column - prices */
-    .right{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
     }
-
-    .price-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:stretch;
+    .videos video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
     }
-
-    .plan {
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:14px;
-      min-width:170px;
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:flex-start;
-      border:1px solid rgba(255,255,255,0.02);
+    /* Botões de compra */
+    .btn {
+      display: block;
+      background: var(--accent1);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin: 12px 0;
+      transition: background .2s;
     }
-
-    .plan .price{
-      font-weight:800;
-      font-size:20px;
-      color:var(--txt);
+    .btn:hover {
+      background: var(--accent2);
     }
-    .plan .label{
-      color:var(--muted);
-      font-size:13px;
+    /* Rodapé */
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #999;
     }
-    .plan .buy{
-      margin-top:auto;
-      width:100%;
-      display:inline-block;
-      text-align:center;
-      padding:12px 10px;
-      border-radius:10px;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      color:#fff;
-      text-decoration:none;
-      font-weight:800;
-      box-shadow:0 10px 24px rgba(161,75,255,0.12);
-    }
-
-    .note {
-      margin-top:8px;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .footer{
-      margin-top:14px;
-      text-align:center;
-      color:rgba(255,255,255,0.18);
-      font-size:12px;
-    }
-
-    /* mobile */
-    @media (max-width:900px){
-      .card{ flex-direction:column; align-items:center }
-      .left{ width:100% }
-      .right{ width:100% }
-      .price-row{ flex-direction:column; }
+    .footer a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 6px;
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="card" role="main" aria-labelledby="site-title">
-      <!-- LEFT -->
-      <div class="left">
-        <div class="logo" aria-hidden="true">
-          <!-- SUBSTITUA POR SUA LOGO: coloque arquivo logo.png na raiz do repo ou URL absoluto -->
-          <img src="logo-privacy.png" alt="Logo">
-        </div>
 
-        <h1 id="site-title">Mundinho Secreto da Brenda</h1>
-        <p class="lead">Acesse conteúdos exclusivos e seguros. Escolha sua opção abaixo e siga as instruções para finalizar o acesso.</p>
+  <div class="container">
+    <div class="logo">
+      <!-- Troque pela sua logo -->
+      <img src="file:///C:/Users/Pc/Downloads/Telegram%20Desktop/photo_2025-06-23_09-56-27.jpg" alt="Logo Privacy">
+    </div>
 
-        <div class="note">🔒 Pagamentos processados por seu gateway seguro. Ao comprar você confirma ser maior de 18 anos.</div>
+    <h1>Mundinho Secreto da Brenda</h1>
+    <p class="desc">Assista as prévias abaixo e escolha seu plano para liberar acesso completo 🔥</p>
+
+    <!-- PRÉVIAS -->
+    <div class="previews">
+      <h2>🔥 Prévia do Conteúdo 🔥</h2>
+      <div class="videos">
+        <video controls preload="metadata">
+          <source src="file:///C:/Users/Pc/Downloads/Telegram%20Desktop/video_2025-09-19_22-21-13.mp4" type="video/mp4">
+        </video>
+        <video controls preload="metadata">
+          <source src="file:///C:/Users/Pc/Downloads/Telegram%20Desktop/video_2025-09-19_22-21-25.mp4" type="video/mp4">
+        </video>
+        <video controls preload="metadata">
+          <source src="file:///C:/Users/Pc/Downloads/Telegram%20Desktop/video_2025-09-19_22-21-41.mp4" type="video/mp4">
+        </video>
+        <video controls preload="metadata">
+          <source src="file:///C:/Users/Pc/Downloads/Telegram%20Desktop/video_2025-09-19_22-21-49.mp4" type="video/mp4">
+        </video>
+        <video controls preload="metadata">
+          <source src="file:///C:/Users/Pc/Downloads/Telegram%20Desktop/video_2025-09-19_22-22-17.mp4" type="video/mp4">
+        </video>
       </div>
+    </div>
 
-      <!-- RIGHT -->
-      <div class="right" aria-live="polite">
-        <div class="price-row">
-          <!-- Plano 1 -->
-          <div class="plan">
-            <div class="label">Plano Diário</div>
-            <div class="price">R$ 9,90</div>
-            <a class="buy" id="buy1" href="LINK_CHECKOUT_DIARIO" target="_blank" rel="noopener">Pagar - R$ 9,90</a>
-          </div>
+    <!-- BOTÕES DE CHECKOUT -->
+    <a href="https://app.pushinpay.com.br/service/pay/9F4995E4-13A8-47DF-930C-593472EC8D56" class="btn">Plano Mensal - R$19,99</a>
+    <a href="https://app.pushinpay.com.br/service/pay/9F49979D-594D-4D11-98F4-1B72D068AABB" class="btn">Plano Vitalício - R$57,90</a>
 
-          <!-- Plano 2 -->
-          <div class="plan">
-            <div class="label">Plano Mensal</div>
-            <div class="price">R$ 29,90</div>
-            <a class="buy" id="buy2" href="LINK_CHECKOUT_MENSAL" target="_blank" rel="noopener">Pagar - R$ 29,90</a>
-          </div>
-
-          <!-- Plano 3 -->
-          <div class="plan">
-            <div class="label">Acesso VIP</div>
-            <div class="price">R$ 99,90</div>
-            <a class="buy" id="buy3" href="LINK_CHECKOUT_ANUAL" target="_blank" rel="noopener">Pagar - R$ 99,90</a>
-          </div>
-        </div>
-
-        <div class="note">Dica: se o pagamento não abrir no app, segure o botão e escolha "Abrir no navegador".</div>
-
-        <div class="footer">
-          <div><a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;">Termos</a> • <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;">Privacidade</a></div>
-          <div style="margin-top:6px">© <span id="yr"></span> HotFlick BR</div>
-        </div>
-      </div>
+    <div class="footer">
+      <p>🔒 Pagamento 100% seguro</p>
+      <p>
+        <a href="#">Termos de Uso</a> | 
+        <a href="#">Política de Privacidade</a>
+      </p>
+      <p>© 2025 Mundinho Secreto da Brenda</p>
     </div>
   </div>
 
-  <!-- =========================
-       SCRIPTS: comportamentos e tracking
-       - onde trocar links e valores
-       - eventos fbq para cliques
-       - integração com UTMify já via pixel no head
-       ========================= -->
-  <script>
-    // roda ano no rodapé
-    document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // CONFIG: troque os LINKS abaixo pelos URLs reais de checkout (ParadisePag / TriboPay / PushInPay ...)
-    var CHECKOUTS = {
-      daily: "https://app.pushinpay.com.br/service/pay/EXEMPLO_DAILY",
-      monthly: "https://app.pushinpay.com.br/service/pay/EXEMPLO_MONTHLY",
-      annual: "https://app.pushinpay.com.br/service/pay/EXEMPLO_ANNUAL"
-    };
-
-    // Se quiser sobrescrever os links automaticamente (caso esqueça), habilite abaixo:
-    document.getElementById('buy1').href = CHECKOUTS.daily;
-    document.getElementById('buy2').href = CHECKOUTS.monthly;
-    document.getElementById('buy3').href = CHECKOUTS.annual;
-
-    // Track clicks para Meta Pixel (somente se fbq() estiver disponível)
-    function trackClick(name, price){
-      try{
-        if(typeof fbq === 'function'){
-          fbq('track', 'InitiateCheckout', {content_name: name, value: price, currency: 'BRL'});
-        }
-      }catch(e){}
-    }
-
-    document.getElementById('buy1').addEventListener('click', function(){ trackClick('Plano Diário', 9.90); });
-    document.getElementById('buy2').addEventListener('click', function(){ trackClick('Plano Mensal', 29.90); });
-    document.getElementById('buy3').addEventListener('click', function(){ trackClick('Acesso VIP', 99.90); });
-
-    // UTM passthrough (se quiser repassar utms recebidos para os checkouts)
-    (function(){
-      try{
-        var params = new URLSearchParams(window.location.search);
-        var utms = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
-        var has=false;
-        utms.forEach(function(k){ if(params.has(k)) has=true; });
-        if(!has) return;
-        function append(href){
-          if(!href) return href;
-          var u = new URL(href, window.location.origin);
-          utms.forEach(function(k){ if(params.has(k)) u.searchParams.set(k, params.get(k)); });
-          return u.toString();
-        }
-        ['buy1','buy2','buy3'].forEach(function(id){
-          var a = document.getElementById(id);
-          if(a && a.href) a.href = append(a.href);
-        });
-      }catch(e){}
-    })();
-  </script>
 </body>
 </html>
