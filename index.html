@@ -47,9 +47,46 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, var(--bg1), var(--bg2));
       color: var(--text-light);
-      text-align: center;
-      padding: 30px 20px;
     }
+
+    /* Tela de loading */
+    #loading-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      z-index: 9999;
+      text-align: center;
+    }
+    #loading-screen h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .progress-bar {
+      width: 80%;
+      height: 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      animation: load 3s forwards;
+    }
+    @keyframes load {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Conteúdo principal */
     .container {
       max-width: 640px;
       margin: 0 auto;
@@ -58,6 +95,8 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       backdrop-filter: blur(6px);
+      text-align: center;
+      display: none; /* escondido até o loading terminar */
     }
     .logo img {
       max-width: 160px;
@@ -76,7 +115,6 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
       font-size: 15px;
       margin-bottom: 30px;
     }
-    /* Prévia dos vídeos */
     .previews {
       margin-bottom: 30px;
     }
@@ -102,7 +140,6 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
     .videos video:hover {
       transform: scale(1.03);
     }
-    /* Botões de compra */
     .btn {
       display: block;
       background: linear-gradient(90deg, var(--accent1), var(--accent2));
@@ -119,7 +156,6 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(74,0,224,0.6);
     }
-    /* Rodapé */
     .footer {
       margin-top: 25px;
       font-size: 12px;
@@ -134,16 +170,23 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
 </head>
 <body>
 
-  <div class="container">
+  <!-- TELA DE LOADING -->
+  <div id="loading-screen">
+    <h2>Carregando seu acesso ao Mundinho da Brenda...</h2>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="container" id="main-content">
     <div class="logo">
-      <!-- Troque pela sua logo -->
       <img src="https://github.com/user-attachments/assets/ed17fe0a-1954-4ee1-a1eb-a2ee32a0669c" alt="Logo">
     </div>
 
     <h1>Mundinho Secreto da Brenda</h1>
-    <p class="desc">Oi amor, assiste as prévias abaixo... Se você gostar, clica pra comprar e ver os detalhes do pacotinho! 🔥</p>
+    <p class="desc">Assista às prévias abaixo e escolha seu plano para liberar acesso completo 🔥</p>
 
-    <!-- PRÉVIAS -->
     <div class="previews">
       <h2>🔥 Prévia do Conteúdo 🔥</h2>
       <div class="videos">
@@ -165,7 +208,6 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <!-- BOTÕES DE CHECKOUT -->
     <a href="https://app.pushinpay.com.br/service/pay/9F4995E4-13A8-47DF-930C-593472EC8D56" class="btn">Plano Mensal - R$19,99</a>
     <a href="https://app.pushinpay.com.br/service/pay/9F49979D-594D-4D11-98F4-1B72D068AABB" class="btn">Plano Vitalício - R$57,90</a>
 
@@ -178,6 +220,14 @@ src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
       <p>© 2025 Mundinho Secreto da Brenda</p>
     </div>
   </div>
+
+  <script>
+    // esconde o loading após 3s e mostra o site
+    setTimeout(() => {
+      document.getElementById("loading-screen").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 3000);
+  </script>
 
 </body>
 </html>
