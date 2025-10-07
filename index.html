@@ -1,11 +1,33 @@
+ </body>
+</html>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Mundinho Secreto da Brenda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segredinhos da Brenda</title>
+  <meta name="robots" content="noindex,nofollow" />
 
-  <!-- Meta Pixel Code -->
+  <!-- Pixel UTMify -->
+ <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+  <!-- End Pixel UTMify -->
+
+<script>
+  window.pixelId = "68ba7947ddb802bc4f2481ef";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,223 +38,62 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '652474300856231');
-fbq('track', 'PageView');
+fbq('track', 'ViewContent');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-  <!-- UTMify Pixel -->
-  <script>
-    window.pixelId = "652474300856231";
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    document.head.appendChild(a);
-  </script>
-  <!-- End UTMify Pixel -->
-
   <style>
-    :root {
-      --bg1: #0d0d0d;
-      --bg2: #1a001f;
-      --accent1: #8e2de2;
-      --accent2: #4a00e0;
-      --text-light: #f5f5f5;
-    }
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text-light);
-    }
-
-    /* Tela de loading */
-    #loading-screen {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      z-index: 9999;
-      text-align: center;
-    }
-    #loading-screen h2 {
-      font-size: 20px;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .progress-bar {
-      width: 80%;
-      height: 12px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progress {
-      width: 0;
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      animation: load 3s forwards;
-    }
-    @keyframes load {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    /* Conteúdo principal */
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.05);
-      padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      text-align: center;
-      display: none; /* escondido até o loading terminar */
-    }
-    .logo img {
-      max-width: 160px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 8px rgba(142,45,226,0.8));
+      margin:0;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:#fff;
+      font-family: Arial, sans-serif;
     }
     h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 28px;
+      margin-bottom: 40px;
+      color:#111;
+      text-align:center;
     }
-    p.desc {
-      color: #ccc;
-      font-size: 15px;
-      margin-bottom: 30px;
+    a.btn {
+      display:inline-block;
+      padding:18px 40px;
+      font-size:20px;
+      font-weight:bold;
+      background:#111;
+      color:#fff;
+      border-radius:10px;
+      text-decoration:none;
+      transition: background .2s ease, transform .1s ease;
     }
-    .previews {
-      margin-bottom: 30px;
-    }
-    .previews h2 {
-      margin-bottom: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .videos video {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-      transition: transform 0.3s ease;
-    }
-    .videos video:hover {
-      transform: scale(1.03);
-    }
-    .btn {
-      display: block;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      color: #fff;
-      text-decoration: none;
-      padding: 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin: 14px 0;
-      box-shadow: 0 6px 20px rgba(142,45,226,0.5);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(74,0,224,0.6);
-    }
-    .footer {
-      margin-top: 25px;
-      font-size: 12px;
-      color: #aaa;
-    }
-    .footer a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 6px;
-    }
+    a.btn:hover { background:#333; }
+    a.btn:active { transform:scale(.97); }
   </style>
 </head>
 <body>
+  <h1>Acesse o Grupo VIP</h1>
+  <a class="btn" href="https://t.me/previasdabrendaa" target="_blank" rel="noopener">
+    CLIQUE AQUI
+  </a>
 
-  <!-- TELA DE LOADING -->
-  <div id="loading-screen">
-    <h2>Carregando seu acesso ao Mundinho da Brenda...</h2>
-    <div class="progress-bar">
-      <div class="progress"></div>
-    </div>
-  </div>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4VZVXJB');</script>
+<!-- End Google Tag Manager -->
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <div class="container" id="main-content">
-    <div class="logo">
-      <img src="https://github.com/user-attachments/assets/ed17fe0a-1954-4ee1-a1eb-a2ee32a0669c" alt="Logo">
-    </div>
-
-    <h1>Mundinho Secreto da Brenda</h1>
-    <p class="desc">Oi amor. Vou te levar pra conhecer o que é conteúdo de verdade! Olha minhas prévias e clica no botão lá embaixo pra ver todos os detalhes! 🔥</p>
-
-    <div class="previews">
-      <h2>🔥 Prévia do Conteúdo 🔥</h2>
-      <div class="videos">
-        <video controls preload="metadata">
-          <source src="https://github.com/user-attachments/assets/ae6000bb-5eb3-436d-ba4b-c1b5d0be7111" type="video/mp4">
-        </video>
-        <video controls preload="metadata">
-          <source src="https://github.com/user-attachments/assets/71b8107c-4809-4517-8ea8-f32e86aa8b4e" type="video/mp4">
-        </video>
-        <video controls preload="metadata">
-          <source src="https://github.com/user-attachments/assets/361dd1fb-e6d8-47d2-903e-9529f0725a93" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
-    <a href="https://t.me/brendatavarex_bot?start=utm_source=facebook&utm_medium=cpc&utm_campaign=campanha1&utm_content=criativoA" class="btn">ACESSAR GRUPO VIP 💦</a>
-    <div class="footer">
-      <p>🔒 Pagamento 100% seguro</p>
-      <p>
-        <a href="#">Termos de Uso</a> | 
-        <a href="#">Política de Privacidade</a>
-      </p>
-      <p>© 2025 Mundinho Secreto da Brenda</p>
-    </div>
-  </div>
-
-  <script>
-    // esconde o loading após 3s e mostra o site
-    setTimeout(() => {
-      document.getElementById("loading-screen").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    }, 3000);
-  </script>
-
+ <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4VZVXJB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
