@@ -3,37 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cantinho da Brenda</title>
+  <title>Segredinhos da Brenda</title>
   <meta name="robots" content="noindex,nofollow" />
 
-  <!-- Pixel UTMify -->
-  <script
-    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-    data-utmify-prevent-xcod-sck
-    data-utmify-prevent-subids
-    async
-    defer
-  ></script>
-  <!-- End Pixel UTMify -->
+  
+ <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '652474300856231');
-  fbq('track', 'PageView');
-  fbq('track', 'InitiateCheckout');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+
+<script>
+  window.pixelId = "68ba7947ddb802bc4f2481ef";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '652474300856231');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=652474300856231&ev=PageView&noscript=1"
+/></noscript>
+
 
   <style>
     body {
@@ -43,52 +51,47 @@
       flex-direction:column;
       justify-content:center;
       align-items:center;
+      background:#fff;
       font-family: Arial, sans-serif;
-      color:#fff;
-      text-align:center;
-      background: linear-gradient(135deg, #000000, #2d003d);
     }
     h1 {
       font-size: 28px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
+      color:#111;
+      text-align:center;
     }
-    p {
-      font-size: 16px;
-      color:#bbb;
-      margin-bottom: 30px;
+    a.btn {
+      display:inline-block;
+      padding:18px 40px;
+      font-size:20px;
+      font-weight:bold;
+      background:#111;
+      color:#fff;
+      border-radius:10px;
+      text-decoration:none;
+      transition: background .2s ease, transform .1s ease;
     }
-    .progress-container {
-      width: 80%;
-      max-width: 300px;
-      height: 10px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, #8e2de2, #4a00e0);
-      animation: load 3s linear forwards;
-    }
-    @keyframes load {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
+    a.btn:hover { background:#333; }
+    a.btn:active { transform:scale(.97); }
   </style>
-
-  <!-- Redirecionamento em 3s -->
-  <script>
-    setTimeout(function(){
-      window.location.href = "https://t.me/brendatavarex_bot?utm_source=tiktok";
-    }, 3000);
-  </script>
 </head>
 <body>
-  <h1>Mundinho Secreto da Brenda</h1>
-  <p>Carregando seu acesso... ⏳</p>
-  <div class="progress-container">
-    <div class="progress-bar"></div>
-  </div>
+  <h1>Acesse o Grupo VIP</h1>
+  <a class="btn" href="https://flexionpay.com/redirect/brendinhavip" target="_blank" rel="noopener">
+    CLIQUE AQUI
+  </a>
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4VZVXJB');</script>
+
+ 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4VZVXJB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 </body>
 </html>
+
