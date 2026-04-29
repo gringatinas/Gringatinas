@@ -1,137 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carregando...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso</title>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '800612109674856');
-  fbq('track', 'PageView');
-  </script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '800612109674856');
+fbq('track', 'PageView');
+</script>
 
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=800612109674856&ev=PageView&noscript=1"/>
-  </noscript>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=800612109674856&ev=PageView&noscript=1"/>
+</noscript>
 
-  <!-- Redirecionamento automático -->
-  <meta http-equiv="refresh" content="1;url=https://t.me/flixhubot?start=instagram">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 
-  <script>
-    setTimeout(function(){
-      window.location.href = "https://t.me/flixhubot?start=instagram";
-    }, 1000);
-  </script>
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at top, #020617, #000);
+  color:#fff;
+}
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+.container{
+  width:100%;
+  max-width:420px;
+  padding:25px;
+  text-align:center;
+  animation:fade .5s ease;
+}
 
-    body{
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: radial-gradient(circle at top, #1f2937, #020617);
-      color:#fff;
-    }
+@keyframes fade{
+  from{opacity:0;transform:translateY(15px);}
+  to{opacity:1;transform:translateY(0);}
+}
 
-    .container{
-      width:100%;
-      max-width:420px;
-      text-align:center;
-      padding:25px;
-    }
+.badge{
+  font-size:12px;
+  color:#ff4d4d;
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
 
-    .badge{
-      font-size:14px;
-      color:#ff4d4d;
-      margin-bottom:10px;
-      letter-spacing:1px;
-    }
+h1{
+  font-size:22px;
+  margin-bottom:8px;
+}
 
-    h1{
-      font-size:22px;
-      margin-bottom:20px;
-    }
+.sub{
+  font-size:14px;
+  color:#94a3b8;
+  margin-bottom:18px;
+}
 
-    .btn{
-      display:block;
-      width:100%;
-      padding:16px;
-      margin-bottom:15px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:16px;
-      transition:0.3s;
-    }
+.btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:12px;
+  transition:.2s;
+}
 
-    /* Botão principal (neon Telegram) */
-    .primary{
-      background: linear-gradient(45deg, #229ED9, #38bdf8);
-      box-shadow: 0 0 15px rgba(34,158,217,0.6);
-      color:#fff;
-    }
+/* principal */
+.primary{
+  background:linear-gradient(45deg,#229ED9,#38bdf8);
+  color:#fff;
+  animation:pulse 1.6s infinite;
+}
 
-    .primary:hover{
-      transform:scale(1.03);
-      box-shadow: 0 0 25px rgba(34,158,217,0.9);
-    }
+@keyframes pulse{
+  0%{box-shadow:0 0 8px rgba(34,158,217,.3);}
+  50%{box-shadow:0 0 22px rgba(34,158,217,.9);}
+  100%{box-shadow:0 0 8px rgba(34,158,217,.3);}
+}
 
-    /* Botão secundário */
-    .secondary{
-      background: linear-gradient(45deg, #334155, #1e293b);
-      color:#cbd5f5;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+/* secundário */
+.secondary{
+  background:#1e293b;
+  color:#cbd5f5;
+}
 
-    .secondary:hover{
-      transform:scale(1.03);
-      background: linear-gradient(45deg, #475569, #334155);
-    }
+.btn:active{
+  transform:scale(0.97);
+}
 
-    .info{
-      font-size:13px;
-      color:#94a3b8;
-      margin-top:10px;
-    }
-  </style>
+.counter{
+  font-size:13px;
+  color:#22c55e;
+  margin-top:10px;
+}
+
+.loading{
+  font-size:12px;
+  color:#64748b;
+  margin-top:6px;
+}
+</style>
 
 </head>
 
 <body>
 
-  <div class="container">
-    
-    <div class="badge">ACESSO RESTRITO</div>
-    <h1>Entrar no grupo do Telegram</h1>
+<div class="container">
 
-    <a href="https://t.me/flixhubot?start=Instagram" class="btn primary">
-      🌟 Ver Grupo VIP 🌟
-    </a>
+  <div class="badge">ACESSO DISPONÍVEL</div>
 
-    <a href="https://t.me/baixarendagratis" class="btn secondary">
-      Grupo de Prévias
-    </a>
+  <h1>Entrar no Telegram</h1>
 
-    <div class="info">Redirecionando automaticamente...</div>
+  <div class="sub">Atualizado recentemente</div>
 
-  </div>
+  <a href="https://t.me/flixhubot?start=Instagram" class="btn primary" onclick="vibrate()">
+    🌟 Acessar principal
+  </a>
+
+  <a href="https://t.me/baixarendagratis" class="btn secondary">
+    Ver prévias
+  </a>
+
+  <div class="counter" id="counter">● 127 pessoas acessando agora</div>
+
+  <div class="loading">Escolha uma opção acima</div>
+
+</div>
+
+<script>
+function vibrate(){
+  if(navigator.vibrate){
+    navigator.vibrate(50);
+  }
+}
+
+function updateCounter(){
+  let num = Math.floor(Math.random()*40) + 110;
+  document.getElementById("counter").innerText =
+    "● " + num + " pessoas acessando agora";
+}
+
+setInterval(updateCounter, 3000);
+</script>
 
 </body>
 </html>
