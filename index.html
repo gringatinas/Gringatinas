@@ -1,159 +1,330 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Acesso</title>
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1548214903316952');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1548214903316952&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod ?
+n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+};
 
-  <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+if(!f._fbq)f._fbq=n;
+
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+
+}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+const EVENT_ID = Date.now().toString();
+
+fbq('init', '1548214903316952');
+
+/* PAGEVIEW */
+fbq(
+'track',
+'PageView',
+{},
+{ eventID: EVENT_ID }
+);
+
+/* VIEWCONTENT */
+fbq(
+'track',
+'ViewContent',
+{
+content_name: 'Bridge Telegram',
+content_category: 'Telegram Hot'
+},
+{ eventID: EVENT_ID }
+);
+
+/* TEMPO NA PÁGINA */
+setTimeout(() => {
+
+fbq('trackCustom', 'EngagedUser', {
+time_on_page: 15
+});
+
+}, 15000);
+
+/* SCROLL */
+let scrollTracked = false;
+
+window.addEventListener('scroll', () => {
+
+if(!scrollTracked && window.scrollY > 250){
+
+scrollTracked = true;
+
+fbq('trackCustom', 'ScrollDepth', {
+depth: '50%'
+});
+
+}
+
+});
+
+/* PRESERVAR FBCLID */
+const urlParams = new URLSearchParams(window.location.search);
+
+const fbclid = urlParams.get('fbclid');
+
+if(fbclid){
+localStorage.setItem('fbclid', fbclid);
+}
+
+/* PRESERVAR UTMs */
+const utm_source = urlParams.get('utm_source');
+const utm_campaign = urlParams.get('utm_campaign');
+const utm_content = urlParams.get('utm_content');
+const utm_term = urlParams.get('utm_term');
+
+if(utm_source) localStorage.setItem('utm_source', utm_source);
+if(utm_campaign) localStorage.setItem('utm_campaign', utm_campaign);
+if(utm_content) localStorage.setItem('utm_content', utm_content);
+if(utm_term) localStorage.setItem('utm_term', utm_term);
+
+</script>
+
+<noscript>
+<img
+height="1"
+width="1"
+style="display:none"
+src="https://www.facebook.com/tr?id=1548214903316952&ev=PageView&noscript=1"
+/>
+</noscript>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
 body{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: radial-gradient(circle at top, #020617, #000);
-  color:#fff;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:radial-gradient(circle at top,#020617,#000);
+color:#fff;
+overflow:hidden;
 }
 
 .container{
-  width:100%;
-  max-width:420px;
-  padding:25px;
-  text-align:center;
-  animation:fade .5s ease;
+width:100%;
+max-width:420px;
+padding:25px;
+text-align:center;
+animation:fade .5s ease;
 }
 
 @keyframes fade{
-  from{opacity:0;transform:translateY(15px);}
-  to{opacity:1;transform:translateY(0);}
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .badge{
-  font-size:12px;
-  color:#ff4d4d;
-  margin-bottom:6px;
-  letter-spacing:1px;
+font-size:12px;
+color:#ff4d4d;
+margin-bottom:6px;
+letter-spacing:1px;
+font-weight:bold;
 }
 
 h1{
-  font-size:22px;
-  margin-bottom:8px;
+font-size:24px;
+margin-bottom:10px;
+font-weight:800;
 }
 
 .sub{
-  font-size:14px;
-  color:#94a3b8;
-  margin-bottom:18px;
+font-size:14px;
+color:#94a3b8;
+margin-bottom:20px;
+line-height:1.4;
 }
 
 .btn{
-  display:block;
-  width:100%;
-  padding:16px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:800;
-  font-size:16px;
-  margin-bottom:12px;
-  transition:.2s;
+display:block;
+width:100%;
+padding:16px;
+border-radius:14px;
+text-decoration:none;
+font-weight:800;
+font-size:16px;
+margin-bottom:12px;
+transition:.2s;
+border:none;
+cursor:pointer;
 }
 
-/* principal */
 .primary{
-  background:linear-gradient(45deg,#229ED9,#38bdf8);
-  color:#fff;
-  animation:pulse 1.6s infinite;
+background:linear-gradient(45deg,#229ED9,#38bdf8);
+color:#fff;
+animation:pulse 1.6s infinite;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 8px rgba(34,158,217,.3);}
-  50%{box-shadow:0 0 22px rgba(34,158,217,.9);}
-  100%{box-shadow:0 0 8px rgba(34,158,217,.3);}
-}
-
-/* secundário */
 .secondary{
-  background:#1e293b;
-  color:#cbd5f5;
+background:#1e293b;
+color:#cbd5e1;
+}
+
+.btn:hover{
+transform:translateY(-2px);
 }
 
 .btn:active{
-  transform:scale(0.97);
+transform:scale(0.98);
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 8px rgba(34,158,217,.3);
+}
+
+50%{
+box-shadow:0 0 24px rgba(34,158,217,.9);
+}
+
+100%{
+box-shadow:0 0 8px rgba(34,158,217,.3);
+}
+
 }
 
 .counter{
-  font-size:13px;
-  color:#22c55e;
-  margin-top:10px;
+font-size:13px;
+color:#22c55e;
+margin-top:10px;
+font-weight:bold;
 }
 
 .loading{
-  font-size:12px;
-  color:#64748b;
-  margin-top:6px;
+font-size:12px;
+color:#64748b;
+margin-top:6px;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="badge">ACESSO DISPONÍVEL</div>
+<div class="badge">
+ACESSO DISPONÍVEL
+</div>
 
-  <h1>Entrar no Telegram</h1>
+<h1>
+Entrar no Telegram
+</h1>
 
-  <div class="sub">Atualizado recentemente</div>
+<div class="sub">
+Atualizado recentemente
+</div>
 
-  <a href="https://t.me/flixhubot?start=Instagram" class="btn primary" onclick="vibrate()">
-    🌟 Acessar principal
-  </a>
+<a
+href="https://t.me/flixhubot?start=Instagram"
+class="btn primary"
+onclick="trackTelegram('principal')"
+>
+🌟 Acessar principal
+</a>
 
-  <a href="https://t.me/baixarendagratiss" class="btn secondary">
-    Ver prévias
-  </a>
+<a
+href="https://t.me/baixarendagratiss"
+class="btn secondary"
+onclick="trackTelegram('previas')"
+>
+Ver prévias
+</a>
 
-  <div class="counter" id="counter">● 127 pessoas acessando agora</div>
+<div class="counter" id="counter">
+● 127 pessoas acessando agora
+</div>
 
-  <div class="loading">Escolha uma opção acima</div>
+<div class="loading">
+Escolha uma opção acima
+</div>
 
 </div>
 
 <script>
-function vibrate(){
-  if(navigator.vibrate){
-    navigator.vibrate(50);
-  }
+
+/* VIBRAÇÃO */
+function vibratePhone(){
+
+if(navigator.vibrate){
+navigator.vibrate(50);
 }
 
+}
+
+/* TRACK CLIQUE TELEGRAM */
+function trackTelegram(type){
+
+vibratePhone();
+
+/* LEAD */
+fbq('track', 'Lead', {
+destination: type
+});
+
+/* INITIATE CHECKOUT */
+fbq('track', 'InitiateCheckout', {
+content_name: type,
+platform: 'Telegram'
+});
+
+/* CUSTOM EVENT */
+fbq('trackCustom', 'TelegramClick', {
+button: type
+});
+
+}
+
+/* CONTADOR */
 function updateCounter(){
-  let num = Math.floor(Math.random()*40) + 110;
-  document.getElementById("counter").innerText =
-    "● " + num + " pessoas acessando agora";
+
+let num = Math.floor(Math.random() * 40) + 110;
+
+document.getElementById("counter").innerText =
+"● " + num + " pessoas acessando agora";
+
 }
 
 setInterval(updateCounter, 3000);
+
 </script>
 
 </body>
