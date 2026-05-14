@@ -1,116 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Acesso</title>
 
-<!-- Meta Pixel -->
 <script>
-!function(f,b,e,v,n,t,s){
-if(f.fbq)return;
-n=f.fbq=function(){
-n.callMethod ?
-n.callMethod.apply(n,arguments) : n.queue.push(arguments)
-};
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-if(!f._fbq)f._fbq=n;
+const e1=Date.now().toString();
 
-n.push=n;
-n.loaded=!0;
-n.version='2.0';
-n.queue=[];
+fbq('init','1548214903316952');
 
-t=b.createElement(e);
-t.async=!0;
-t.src=v;
+fbq('track','PageView',{},{eventID:e1});
 
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s);
+fbq('track','ViewContent',{
+content_name:'Access',
+content_category:'Content'
+},{eventID:e1});
 
-}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+function g(n){
+let m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));
+if(m)return m[2];
+}
 
-const EVENT_ID = Date.now().toString();
+const p=new URLSearchParams(window.location.search);
 
-fbq('init', '1548214903316952');
+const a=p.get('fbclid');
+const b=p.get('utm_source');
+const c=p.get('utm_campaign');
+const d=p.get('utm_content');
+const e=p.get('utm_term');
 
-/* PAGEVIEW */
+if(a){
+
+localStorage.setItem('fbclid',a);
+
+const f='fb.1.'+Date.now()+'.'+a;
+
+document.cookie=`_fbc=${f}; path=/; max-age=7776000`;
+
+localStorage.setItem('_fbc',f);
+
+}
+
+const h=g('_fbp');
+
+if(h){
+localStorage.setItem('_fbp',h);
+}
+
+if(b)localStorage.setItem('utm_source',b);
+if(c)localStorage.setItem('utm_campaign',c);
+if(d)localStorage.setItem('utm_content',d);
+if(e)localStorage.setItem('utm_term',e);
+
+fbq('trackCustom','DeviceData',{
+sw:window.screen.width,
+sh:window.screen.height,
+lg:navigator.language,
+pf:navigator.platform
+});
+
+setTimeout(()=>{
+fbq('trackCustom','EngagedUser',{t:15});
+},15000);
+
+let s1=false;
+
+window.addEventListener('scroll',()=>{
+
+if(!s1&&window.scrollY>250){
+
+s1=true;
+
+fbq('trackCustom','ScrollDepth',{
+d:'50%'
+});
+
+}
+
+});
+
+let i1=false;
+
+document.addEventListener('click',()=>{
+
+if(!i1){
+
+i1=true;
+
+fbq('trackCustom','UserInteraction');
+
+}
+
+});
+
+document.addEventListener('visibilitychange',()=>{
+
+if(document.visibilityState==='hidden'){
+fbq('trackCustom','PageHidden');
+}
+
+if(document.visibilityState==='visible'){
+fbq('trackCustom','PageVisible');
+}
+
+});
+
+window.addEventListener('beforeunload',()=>{
+fbq('trackCustom','ExitIntent');
+});
+
+function v(){
+
+if(navigator.vibrate){
+navigator.vibrate(50);
+}
+
+}
+
+function x(t){
+
+v();
+
+const e2=Date.now().toString();
+
 fbq(
 'track',
-'PageView',
-{},
-{ eventID: EVENT_ID }
-);
-
-/* VIEWCONTENT */
-fbq(
-'track',
-'ViewContent',
+'Lead',
 {
-content_name: 'Bridge Telegram',
-content_category: 'Telegram Hot'
+cn:'Access',
+bc:t,
+ts:localStorage.getItem('utm_source')||'',
+cp:localStorage.getItem('utm_campaign')||'',
+fb:localStorage.getItem('fbclid')||''
 },
-{ eventID: EVENT_ID }
+{
+eventID:e2
+}
 );
 
-/* TEMPO NA PÁGINA */
-setTimeout(() => {
+fbq(
+'track',
+'InitiateCheckout',
+{
+cn:t,
+pf:'tg'
+},
+{
+eventID:e2
+}
+);
 
-fbq('trackCustom', 'EngagedUser', {
-time_on_page: 15
-});
-
-}, 15000);
-
-/* SCROLL */
-let scrollTracked = false;
-
-window.addEventListener('scroll', () => {
-
-if(!scrollTracked && window.scrollY > 250){
-
-scrollTracked = true;
-
-fbq('trackCustom', 'ScrollDepth', {
-depth: '50%'
+fbq('trackCustom','Click',{
+b:t,
+fbc:localStorage.getItem('_fbc')||'',
+fbp:localStorage.getItem('_fbp')||''
 });
 
 }
 
-});
+function u(){
 
-/* PRESERVAR FBCLID */
-const urlParams = new URLSearchParams(window.location.search);
+let n=Math.floor(Math.random()*40)+110;
 
-const fbclid = urlParams.get('fbclid');
+document.getElementById('c').innerText=
+'● '+n+' pessoas acessando agora';
 
-if(fbclid){
-localStorage.setItem('fbclid', fbclid);
 }
 
-/* PRESERVAR UTMs */
-const utm_source = urlParams.get('utm_source');
-const utm_campaign = urlParams.get('utm_campaign');
-const utm_content = urlParams.get('utm_content');
-const utm_term = urlParams.get('utm_term');
-
-if(utm_source) localStorage.setItem('utm_source', utm_source);
-if(utm_campaign) localStorage.setItem('utm_campaign', utm_campaign);
-if(utm_content) localStorage.setItem('utm_content', utm_content);
-if(utm_term) localStorage.setItem('utm_term', utm_term);
+setInterval(u,3000);
 
 </script>
 
 <noscript>
-<img
-height="1"
-width="1"
-style="display:none"
-src="https://www.facebook.com/tr?id=1548214903316952&ev=PageView&noscript=1"
-/>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1548214903316952&ev=PageView&noscript=1"/>
 </noscript>
 
 <style>
@@ -132,15 +197,15 @@ color:#fff;
 overflow:hidden;
 }
 
-.container{
+.w{
 width:100%;
 max-width:420px;
-padding:25px;
+padding:28px;
 text-align:center;
-animation:fade .5s ease;
+animation:f .5s ease;
 }
 
-@keyframes fade{
+@keyframes f{
 from{
 opacity:0;
 transform:translateY(15px);
@@ -151,25 +216,25 @@ transform:translateY(0);
 }
 }
 
-.badge{
+.b1{
 font-size:12px;
-color:#ff4d4d;
-margin-bottom:6px;
-letter-spacing:1px;
 font-weight:bold;
+color:#ff4d4d;
+margin-bottom:8px;
+letter-spacing:1px;
 }
 
 h1{
-font-size:24px;
-margin-bottom:10px;
+font-size:26px;
 font-weight:800;
+margin-bottom:10px;
 }
 
-.sub{
+.s1{
 font-size:14px;
+line-height:1.5;
 color:#94a3b8;
-margin-bottom:20px;
-line-height:1.4;
+margin-bottom:22px;
 }
 
 .btn{
@@ -186,13 +251,13 @@ border:none;
 cursor:pointer;
 }
 
-.primary{
+.p1{
 background:linear-gradient(45deg,#229ED9,#38bdf8);
 color:#fff;
-animation:pulse 1.6s infinite;
+animation:p 1.6s infinite;
 }
 
-.secondary{
+.p2{
 background:#1e293b;
 color:#cbd5e1;
 }
@@ -205,30 +270,26 @@ transform:translateY(-2px);
 transform:scale(0.98);
 }
 
-@keyframes pulse{
-
+@keyframes p{
 0%{
 box-shadow:0 0 8px rgba(34,158,217,.3);
 }
-
 50%{
 box-shadow:0 0 24px rgba(34,158,217,.9);
 }
-
 100%{
 box-shadow:0 0 8px rgba(34,158,217,.3);
 }
-
 }
 
-.counter{
+.c1{
 font-size:13px;
-color:#22c55e;
-margin-top:10px;
 font-weight:bold;
+color:#22c55e;
+margin-top:12px;
 }
 
-.loading{
+.l1{
 font-size:12px;
 color:#64748b;
 margin-top:6px;
@@ -239,9 +300,9 @@ margin-top:6px;
 
 <body>
 
-<div class="container">
+<div class="w">
 
-<div class="badge">
+<div class="b1">
 ACESSO DISPONÍVEL
 </div>
 
@@ -249,83 +310,35 @@ ACESSO DISPONÍVEL
 Entrar no Telegram
 </h1>
 
-<div class="sub">
+<div class="s1">
 Atualizado recentemente
 </div>
 
 <a
 href="https://t.me/flixhubot?start=Instagram"
-class="btn primary"
-onclick="trackTelegram('principal')"
+class="btn p1"
+onclick="x('p')"
 >
 🌟 Acessar principal
 </a>
 
 <a
 href="https://t.me/baixarendagratiss"
-class="btn secondary"
-onclick="trackTelegram('previas')"
+class="btn p2"
+onclick="x('s')"
 >
 Ver prévias
 </a>
 
-<div class="counter" id="counter">
-● 127 pessoas acessando agora
+<div class="c1" id="c">
+● 4680 pessoas acessando agora
 </div>
 
-<div class="loading">
+<div class="l1">
 Escolha uma opção acima
 </div>
 
 </div>
-
-<script>
-
-/* VIBRAÇÃO */
-function vibratePhone(){
-
-if(navigator.vibrate){
-navigator.vibrate(50);
-}
-
-}
-
-/* TRACK CLIQUE TELEGRAM */
-function trackTelegram(type){
-
-vibratePhone();
-
-/* LEAD */
-fbq('track', 'Lead', {
-destination: type
-});
-
-/* INITIATE CHECKOUT */
-fbq('track', 'InitiateCheckout', {
-content_name: type,
-platform: 'Telegram'
-});
-
-/* CUSTOM EVENT */
-fbq('trackCustom', 'TelegramClick', {
-button: type
-});
-
-}
-
-/* CONTADOR */
-function updateCounter(){
-
-let num = Math.floor(Math.random() * 40) + 110;
-
-document.getElementById("counter").innerText =
-"● " + num + " pessoas acessando agora";
-
-}
-
-setInterval(updateCounter, 3000);
-
-</script>
 
 </body>
 </html>
