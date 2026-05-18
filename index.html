@@ -6,7 +6,23 @@
 <title>Acesso</title>
 
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
 const e1=Date.now().toString();
 
@@ -172,6 +188,21 @@ document.getElementById('c').innerText=
 
 setInterval(u,3000);
 
+window.addEventListener('DOMContentLoaded',()=>{
+
+const lang=navigator.language||navigator.userLanguage;
+
+if(
+lang.includes('en')||
+lang.includes('es')
+){
+
+document.getElementById('globalBtn').style.display='block';
+
+}
+
+});
+
 </script>
 
 <noscript>
@@ -262,6 +293,11 @@ background:#1e293b;
 color:#cbd5e1;
 }
 
+.p3{
+background:linear-gradient(45deg,#7c3aed,#a855f7);
+color:#fff;
+}
+
 .btn:hover{
 transform:translateY(-2px);
 }
@@ -328,6 +364,16 @@ class="btn p2"
 onclick="x('s')"
 >
 Ver prévias
+</a>
+
+<a
+href="https://t.me/SEULINKGLOBAL"
+class="btn p3"
+id="globalBtn"
+onclick="x('global')"
+style="display:none;"
+>
+Click Here to Access 🌍
 </a>
 
 <div class="c1" id="c">
