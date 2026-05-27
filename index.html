@@ -322,69 +322,38 @@ margin-bottom:28px;
 .btn{
 display:block;
 width:100%;
-padding:20px;
-border-radius:22px;
+padding:18px;
+border-radius:18px;
 text-decoration:none;
 font-weight:900;
 font-size:17px;
 transition:.25s;
 border:none;
 cursor:pointer;
-position:relative;
-overflow:hidden;
-margin-bottom:14px;
-}
-
-.btn span{
-position:relative;
-z-index:2;
-display:block;
-}
-
-.btn small{
-position:relative;
-z-index:2;
-display:block;
-margin-top:4px;
-font-size:12px;
-font-weight:600;
-opacity:.92;
-}
-
-.btn:before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.38);
-z-index:1;
-}
-
-.br{
-background:
-url('https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg');
-background-size:cover;
-background-position:center;
+background:linear-gradient(45deg,#229ED9,#38bdf8);
+color:#fff;
+animation:glow 1.8s infinite;
 box-shadow:
-0 0 18px rgba(34,197,94,.22),
-0 0 45px rgba(234,179,8,.12);
+0 0 15px rgba(34,158,217,.35),
+0 0 45px rgba(34,158,217,.15);
 }
 
-.global{
-background:
-url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?q=80&w=1200&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
+@keyframes glow{
+0%{
 box-shadow:
-0 0 18px rgba(59,130,246,.22),
-0 0 45px rgba(168,85,247,.12);
+0 0 10px rgba(34,158,217,.25),
+0 0 30px rgba(34,158,217,.08);
 }
-
-.preview{
-background:
-linear-gradient(45deg,#111827,#1e293b);
+50%{
 box-shadow:
-0 0 18px rgba(148,163,184,.18),
-0 0 45px rgba(30,41,59,.25);
+0 0 22px rgba(34,158,217,.7),
+0 0 60px rgba(34,158,217,.18);
+}
+100%{
+box-shadow:
+0 0 10px rgba(34,158,217,.25),
+0 0 30px rgba(34,158,217,.08);
+}
 }
 
 .btn:hover{
@@ -434,41 +403,39 @@ PRIVATE TELEGRAM ACCESS
 </div>
 
 <h1>
-VIP Baixa Renda
+VIP Favela ⭐
 </h1>
 
 <div class="s1">
-Acesso Privado às melhores faveladas e baixa renda!<br>
-Private Access to the best latinas and brazilians girls!
+Acesso privado ao grupo de faveladinhas e baixa renda!<br>
+Private access to VIP latinas and brazilians girls!
 </div>
 
 <a
 href="https://t.me/flixhubot?start=Instagram"
-class="btn br"
+class="btn"
 onclick="x('p')"
 >
-<span>🇧🇷 ACESSAR VIP </span>
-<small>Conteúdo privado exclusivo</small>
+🇧🇷 VER TUDO COMPLETO
 </a>
 
 <a
 href="https://t.me/favelatinas_bot"
-class="btn global"
+class="btn"
+style="margin-top:12px;background:linear-gradient(45deg,#7c3aed,#a855f7);"
 onclick="x('global')"
 >
-<span>🌍 GLOBAL ACCESS</span>
-<small>International private access</small>
+🌍 GLOBAL VIP ACCESS
 </a>
 
 <a
 href="https://t.me/baixarendabrasil"
-class="btn preview"
-onclick="x('preview')"
+class="btn"
+onclick="x('l')"
 >
-<span>🔥 VER PRÉVIAS</span>
-<small>Acesso gratuito ao grupo de previews</small>
+👀 Prévias • Previews
 </a>
-
+  
 <div class="c1" id="c">
 ● 4680 pessoas acessando agora
 </div>
