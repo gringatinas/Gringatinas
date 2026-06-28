@@ -2,14 +2,16 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Redirecionando...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso</title>
 
 <script>
 !function(f,b,e,v,n,t,s){
 if(f.fbq)return;
-n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+n=f.fbq=function(){
+n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
 if(!f._fbq)f._fbq=n;
 n.push=n;
 n.loaded=!0;
@@ -19,75 +21,178 @@ t=b.createElement(e);
 t.async=!0;
 t.src=v;
 s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s);
+s.parentNode.insertBefore(t,s)
 }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+const e1=Date.now().toString();
 
 fbq('init','1548214903316952');
 
-const eventID=Date.now().toString();
-
-fbq('track','PageView',{},{
-eventID:eventID
-});
+fbq('track','PageView',{},{eventID:e1});
 
 fbq('track','ViewContent',{
-content_name:'Preview Redirect',
+content_name:'Access',
 content_category:'Telegram'
-},{
-eventID:eventID
+},{eventID:e1});
+
+function g(n){
+let m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));
+if(m)return m[2];
+}
+
+const p=new URLSearchParams(window.location.search);
+
+const a=p.get('fbclid');
+const b=p.get('utm_source');
+const c=p.get('utm_campaign');
+const d=p.get('utm_content');
+const e=p.get('utm_term');
+
+if(a){
+
+localStorage.setItem('fbclid',a);
+
+const f='fb.1.'+Date.now()+'.'+a;
+
+document.cookie=`_fbc=${f}; path=/; max-age=7776000`;
+
+localStorage.setItem('_fbc',f);
+
+}
+
+const h=g('_fbp');
+
+if(h){
+localStorage.setItem('_fbp',h);
+}
+
+if(b)localStorage.setItem('utm_source',b);
+if(c)localStorage.setItem('utm_campaign',c);
+if(d)localStorage.setItem('utm_content',d);
+if(e)localStorage.setItem('utm_term',e);
+
+fbq('trackCustom','DeviceData',{
+sw:window.screen.width,
+sh:window.screen.height,
+lg:navigator.language,
+pf:navigator.platform
 });
 
-const url=new URLSearchParams(location.search);
+setTimeout(()=>{
+fbq('trackCustom','EngagedUser',{t:15});
+},15000);
 
-const fbclid=url.get('fbclid');
+let s1=false;
 
-if(fbclid){
+window.addEventListener('scroll',()=>{
 
-const fbc='fb.1.'+Date.now()+'.'+fbclid;
+if(!s1&&window.scrollY>250){
 
-document.cookie="_fbc="+fbc+";path=/;max-age=7776000";
+s1=true;
 
-localStorage.setItem('_fbc',fbc);
-
-localStorage.setItem('fbclid',fbclid);
-
-}
-
-function cookie(n){
-
-const m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));
-
-return m?m[2]:'';
+fbq('trackCustom','ScrollDepth',{
+d:'50%'
+});
 
 }
 
-const fbp=cookie('_fbp');
+});
 
-if(fbp) localStorage.setItem('_fbp',fbp);
+let i1=false;
 
-fbq('track','Lead',{
-cn:'Preview',
+document.addEventListener('click',()=>{
+
+if(!i1){
+
+i1=true;
+
+fbq('trackCustom','UserInteraction');
+
+}
+
+});
+
+document.addEventListener('visibilitychange',()=>{
+
+if(document.visibilityState==='hidden'){
+fbq('trackCustom','PageHidden');
+}
+
+if(document.visibilityState==='visible'){
+fbq('trackCustom','PageVisible');
+}
+
+});
+
+window.addEventListener('beforeunload',()=>{
+fbq('trackCustom','ExitIntent');
+});
+
+function v(){
+
+if(navigator.vibrate){
+navigator.vibrate(50);
+}
+
+}
+
+function x(t){
+
+v();
+
+const e2=Date.now().toString();
+
+fbq(
+'track',
+'Lead',
+{
+cn:'Access',
+bc:t,
+ts:localStorage.getItem('utm_source')||'',
+cp:localStorage.getItem('utm_campaign')||'',
 fb:localStorage.getItem('fbclid')||''
-},{
-eventID:Date.now().toString()
+},
+{
+eventID:e2
+}
+);
+
+fbq(
+'track',
+'InitiateCheckout',
+{
+cn:t,
+pf:'tg'
+},
+{
+eventID:e2
+}
+);
+
+fbq('trackCustom','Click',{
+b:t,
+fbc:localStorage.getItem('_fbc')||'',
+fbp:localStorage.getItem('_fbp')||''
 });
 
-fbq('track','InitiateCheckout',{
-pf:'telegram'
-},{
-eventID:Date.now().toString()
-});
+}
 
-setTimeout(function(){
+function u(){
 
-location.replace("https://t.me/flixhubot");
+let n=Math.floor(Math.random()*40)+110;
 
-},500);
+document.getElementById('c').innerText=
+'● '+n+' pessoas acessando agora';
+
+}
+
+setInterval(u,3000);
 
 </script>
 
 <noscript>
-<meta http-equiv="refresh" content="0;url=https://t.me/flixhubot">
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1548214903316952&ev=PageView&noscript=1"/>
 </noscript>
 
 <style>
@@ -102,55 +207,240 @@ font-family:Arial,sans-serif;
 body{
 height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
-background:#000;
+justify-content:center;
+background:
+linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.92)),
+radial-gradient(circle at top,#0f172a,#000);
 color:#fff;
+overflow:hidden;
+position:relative;
 }
 
-.box{
-text-align:center;
-}
-
-.loader{
-width:54px;
-height:54px;
-border:5px solid rgba(255,255,255,.2);
-border-top:5px solid #229ED9;
+body:before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:rgba(34,158,217,.08);
+filter:blur(120px);
+top:-120px;
+right:-120px;
 border-radius:50%;
-animation:g .8s linear infinite;
-margin:auto auto 20px;
 }
 
-@keyframes g{
+body:after{
+content:'';
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(124,58,237,.08);
+filter:blur(120px);
+bottom:-140px;
+left:-120px;
+border-radius:50%;
+}
+
+.w{
+width:100%;
+max-width:430px;
+padding:34px 28px;
+text-align:center;
+animation:f .5s ease;
+background:rgba(10,10,15,.55);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.06);
+border-radius:28px;
+box-shadow:
+0 0 40px rgba(0,0,0,.45),
+0 0 80px rgba(34,158,217,.08);
+position:relative;
+z-index:2;
+}
+
+@keyframes f{
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.tg{
+width:72px;
+height:72px;
+margin:0 auto 18px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(45deg,#229ED9,#38bdf8);
+box-shadow:
+0 0 25px rgba(34,158,217,.45),
+0 0 60px rgba(34,158,217,.18);
+font-size:34px;
+font-weight:bold;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.04);
+}
 100%{
-transform:rotate(360deg);
+transform:scale(1);
 }
 }
 
-h2{
-font-size:22px;
-margin-bottom:8px;
+.b1{
+font-size:11px;
+font-weight:bold;
+color:#38bdf8;
+margin-bottom:10px;
+letter-spacing:2px;
 }
 
-p{
-color:#9ca3af;
+h1{
+font-size:30px;
+font-weight:900;
+margin-bottom:12px;
+line-height:1.1;
+}
+
+.s1{
 font-size:14px;
+line-height:1.7;
+color:#94a3b8;
+margin-bottom:28px;
+}
+
+.btn{
+display:block;
+width:100%;
+padding:18px;
+border-radius:18px;
+text-decoration:none;
+font-weight:900;
+font-size:17px;
+transition:.25s;
+border:none;
+cursor:pointer;
+background:linear-gradient(45deg,#229ED9,#38bdf8);
+color:#fff;
+animation:glow 1.8s infinite;
+box-shadow:
+0 0 15px rgba(34,158,217,.35),
+0 0 45px rgba(34,158,217,.15);
+}
+
+@keyframes glow{
+0%{
+box-shadow:
+0 0 10px rgba(34,158,217,.25),
+0 0 30px rgba(34,158,217,.08);
+}
+50%{
+box-shadow:
+0 0 22px rgba(34,158,217,.7),
+0 0 60px rgba(34,158,217,.18);
+}
+100%{
+box-shadow:
+0 0 10px rgba(34,158,217,.25),
+0 0 30px rgba(34,158,217,.08);
+}
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.btn:active{
+transform:scale(0.98);
+}
+
+.c1{
+font-size:13px;
+font-weight:bold;
+color:#22c55e;
+margin-top:18px;
+}
+
+.l1{
+font-size:12px;
+color:#64748b;
+margin-top:10px;
+line-height:1.6;
+}
+
+.r1{
+margin-top:24px;
+padding-top:18px;
+border-top:1px solid rgba(255,255,255,.06);
+font-size:11px;
+letter-spacing:1.5px;
+color:#475569;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="box">
+<div class="w">
 
-<div class="loader"></div>
+<div class="tg">
+✈
+</div>
 
-<h2>Redirecionando...</h2>
+<div class="b1">
+PRIVATE TELEGRAM ACCESS
+</div>
 
-<p>Aguarde alguns instantes.</p>
+<h1>
+VIP Favela ⭐
+</h1>
+
+<div class="s1">
+Acesso privado ao grupo de faveladinhas e baixa renda!<br>
+Private access to VIP latinas and brazilians girls!
+</div>
+
+<a
+href="https://t.me/flixhubot?start=Instagram"
+class="btn"
+onclick="x('p')"
+>
+🇧🇷 VER TUDO COMPLETO
+</a>
+
+<a
+href="https://t.me/favelatinas_bot"
+class="btn"
+style="margin-top:12px;background:linear-gradient(45deg,#7c3aed,#a855f7);"
+onclick="x('global')"
+>
+🌍🇺🇸 GLOBAL VIP ACCESS
+</a>
+
+
+<div class="c1" id="c">
+● 4680 pessoas acessando agora
+</div>
+
+<div class="l1">
+Conexão criptografada • Acesso discreto • Telegram Premium
+</div>
+
+<div class="r1">
+TELEGRAM PRIVATE REDIRECT SYSTEM
+</div>
 
 </div>
 
